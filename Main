@@ -1,0 +1,208 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+
+    // ---------------------------------------------------------------------------
+    // Task 1:Create a function that returns smallest number of 2 numbers.
+
+    // For example:
+    // User provides 5
+    // User provides 7
+
+    // Function returns 5
+    // Main function prints out:
+    // 5 is the smallest number
+
+    // System.out.println("Task 1: Enter 2 numbers");
+    // System.out.println("Enter a number: ");
+    // int num1 = scn.nextInt();
+    // System.out.println("Enter another number: ");
+    // int num2 = scn.nextInt();
+
+    // int smallestNum = smallestNumber(num1, num2);
+    // System.out.println(smallestNum + " is the smallest number");
+
+    // ---------------------------------------------------------------------------
+    // Task 2. Create a function that returns a multiplication of 3 different numbers
+    // For example: 
+    // User provides 5
+    // User provides 7
+    // User provides 3
+
+    // Function returns 105
+    // Main function prints out 105
+    // System.out.println("Task 1: Enter 2 numbers");
+    // System.out.println("Enter a number: ");
+    // int number1 = scn.nextInt();
+    // System.out.println("Enter second number: ");
+    // int number2 = scn.nextInt();
+    // System.out.println("Enter third number: ");
+    // int number3 = scn.nextInt();
+    // int multiplication = multiplication(number1, number2, number3);
+    // System.out.println(multiplication + " is the multiplication of 3 numbers");
+
+    // ---------------------------------------------------------------------------
+    // 3. Create a function that returns a combination of first name and last name
+    // User provides "Oskars"
+    // User provides "Klaumanis"
+
+    // Function receives both of the names and returns "Oskars Klaumanis"
+    // Main function prints out the result
+
+    // System.out.println("Task 3:");
+    // System.out.println("Enter your name: ");
+    // String name = scn.next();
+    // System.out.println("Enter your surname: ");
+    // String surname = scn.next();
+    // System.out.println(nameCreation(name, surname));
+
+    // ---------------------------------------------------------------------------
+    // Task: 
+    // 1. Parent simulator, a user provides a number (average grade) to the program, and if it's above 8, then parents go hooray, else they go sad
+
+    // User creates 3 functions
+    //     1. Function called hooraay(), is a void, and returns nothing. It's only job is to print out "Hooraay" in the console
+    //     2. Function called sad(), is a void, and returns nothing. It's only job is to print out "Sad" in the console
+    //     2. Function is called CheckGrades and receives int as value, but returns nothing. It's job is to call hooray() function, if the grade that it received is above 8, and call sad() function, if the grades received is less than 8
+
+    // System.out.println("Task 3:");
+    // System.out.println("Enter your average grade: ");
+    // int grade = scn.nextInt();
+    // checkGrade(grade);
+
+    // ---------------------------------------------------------------------------
+    // Hard:
+    // 1. Fill the party list with people you would like to invite to the party.
+    // Check whether or not "Anna" is in the array.
+    // Check whether or not "Maris" is in the array.
+    // ["Oskars", "Anna", "Andris"]
+    // Result: 
+    // "Anna is in the party list"
+    // "Maris is not in the party list"
+
+    // String[] names = {"Oskars", "Anna", "Andris"};
+    // String name1 = "Anna";
+    // String name2 = "Maris";
+
+    // checkList(names, name1);
+    // checkList(names, name2);
+    
+  
+
+     // ---------------------------------------------------------------------------
+    // 2. Guess the Number Game
+    // Generate a random number from 0 to 100
+    // Make the user guess the number. If it's too high, or too low, let the user know
+    // OPTIONAL: Give maximum of 6 guessues.
+
+    Random random = new Random();
+    int randomNum = random.nextInt(1, 101);
+    System.out.println("Guess the Number Game." + '\n' + "Please enter any number between 0 and 100: ");
+    int userNumber = scn.nextInt();
+    guessRandomNumber(randomNum, userNumber);
+
+
+    
+    
+    // ---------------------------------------------------------------------------
+    // Very hard:
+    // 1. Grades in university
+    // You have 3 students, each one of them has grades. (three different int arrays) 
+    // Calculate the average grade for each student (sum of all grades and divide by grade count)
+
+    // Example:
+    // robertsGrades {8, 6, 7, 9, 10}
+    // annasGrades {7, 10, 10, 9, 6}
+    // franceskasGrades {8, 8, 8, 7, 6}
+
+    // Result:
+    // Robert's average grade is 8
+    // Anna's average grade is 8.4
+    // Franceska's average grade is 7.4
+    
+
+    
+    scn.close();
+    
+  }
+ // ---------------------------------------------------------------------------  Functions  ---------------------------------------------------------------------------
+  
+  public static int smallestNumber(int num1, int num2) {
+    if (num1 < num2) {
+      return num1;
+    } else {
+      return num2;
+    }
+  }
+
+  public static int multiplication(int number1, int number2, int number3) {
+    return number1 * number2 * number3;
+  }
+
+  public static String nameCreation(String name, String surname) {
+    String fullName = name + " " + surname;
+    return fullName;
+  }
+  
+  public static void hooraay() {
+  System.out.print("Hooraay!");
+  }
+  
+  public static void sad() {
+    System.out.print("Sad.");
+  }
+
+  public static void checkGrade(int grade) {
+    if (grade >= 8) {
+      hooraay();
+    }
+    else {
+      sad();
+    }
+  }
+  
+
+  public static void checkList(String[] list, String name) {
+    boolean nameFound = true;
+    
+    for (int i = 0; i < list.length; i++) {
+      if (list[i].equals(name)) {
+        System.out.println(list[i] + " is in the list.");
+        nameFound = true;
+        break;
+          } else {
+        nameFound = false;
+          }
+    }
+    
+    if (nameFound == false) {
+      System.out.println(name + " in not in the list.");
+     }
+  }
+
+  public static void guessRandomNumber(int randomNumber, int userNumber) {
+    Scanner scn = new Scanner(System.in);
+    int numOfAttempts = 6;
+    for (int i = 1; i <= numOfAttempts; i++) {
+    if (randomNumber == userNumber) {
+      System.out.print("The number " + randomNumber + " is correct!");
+      break;
+    } else if (randomNumber > userNumber) {
+      System.out.print("The number is bigger. Try again:");
+      userNumber = scn.nextInt();
+    } else if (randomNumber < userNumber) {
+        System.out.print("The number is smaller. Try again:");
+      userNumber = scn.nextInt();
+      }
+
+      if (i == numOfAttempts) {
+        System.out.println("Number of attampts exceeded. Bye!");
+      }
+    }
+     scn.close();
+
+  }
+}
