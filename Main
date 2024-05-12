@@ -16,14 +16,14 @@ public class Main {
     // Main function prints out:
     // 5 is the smallest number
 
-    // System.out.println("Task 1: Enter 2 numbers");
-    // System.out.println("Enter a number: ");
-    // int num1 = scn.nextInt();
-    // System.out.println("Enter another number: ");
-    // int num2 = scn.nextInt();
+    System.out.println("Task 1: Enter 2 numbers");
+    System.out.println("Enter a number: ");
+    int num1 = scn.nextInt();
+    System.out.println("Enter another number: ");
+    int num2 = scn.nextInt();
 
-    // int smallestNum = smallestNumber(num1, num2);
-    // System.out.println(smallestNum + " is the smallest number");
+    int smallestNum = smallestNumber(num1, num2);
+    System.out.println(smallestNum + " is the smallest number");
 
     // ---------------------------------------------------------------------------
     // Task 2. Create a function that returns a multiplication of 3 different numbers
@@ -34,15 +34,16 @@ public class Main {
 
     // Function returns 105
     // Main function prints out 105
-    // System.out.println("Task 1: Enter 2 numbers");
-    // System.out.println("Enter a number: ");
-    // int number1 = scn.nextInt();
-    // System.out.println("Enter second number: ");
-    // int number2 = scn.nextInt();
-    // System.out.println("Enter third number: ");
-    // int number3 = scn.nextInt();
-    // int multiplication = multiplication(number1, number2, number3);
-    // System.out.println(multiplication + " is the multiplication of 3 numbers");
+    
+    System.out.println("Task 1: Enter 2 numbers");
+    System.out.println("Enter a number: ");
+    int number1 = scn.nextInt();
+    System.out.println("Enter second number: ");
+    int number2 = scn.nextInt();
+    System.out.println("Enter third number: ");
+    int number3 = scn.nextInt();
+    int multiplication = multiplication(number1, number2, number3);
+    System.out.println(multiplication + " is the multiplication of 3 numbers");
 
     // ---------------------------------------------------------------------------
     // 3. Create a function that returns a combination of first name and last name
@@ -52,12 +53,12 @@ public class Main {
     // Function receives both of the names and returns "Oskars Klaumanis"
     // Main function prints out the result
 
-    // System.out.println("Task 3:");
-    // System.out.println("Enter your name: ");
-    // String name = scn.next();
-    // System.out.println("Enter your surname: ");
-    // String surname = scn.next();
-    // System.out.println(nameCreation(name, surname));
+    System.out.println("Task 3:");
+    System.out.println("Enter your name: ");
+    String name = scn.next();
+    System.out.println("Enter your surname: ");
+    String surname = scn.next();
+    System.out.println(nameCreation(name, surname));
 
     // ---------------------------------------------------------------------------
     // Task: 
@@ -68,13 +69,12 @@ public class Main {
     //     2. Function called sad(), is a void, and returns nothing. It's only job is to print out "Sad" in the console
     //     2. Function is called CheckGrades and receives int as value, but returns nothing. It's job is to call hooray() function, if the grade that it received is above 8, and call sad() function, if the grades received is less than 8
 
-    // System.out.println("Task 3:");
-    // System.out.println("Enter your average grade: ");
-    // int grade = scn.nextInt();
-    // checkGrade(grade);
+    System.out.println("Task 3:");
+    System.out.println("Enter your average grade: ");
+    int grade = scn.nextInt();
+    checkGrade(grade);
 
     // ---------------------------------------------------------------------------
-    // Hard:
     // 1. Fill the party list with people you would like to invite to the party.
     // Check whether or not "Anna" is in the array.
     // Check whether or not "Maris" is in the array.
@@ -83,12 +83,12 @@ public class Main {
     // "Anna is in the party list"
     // "Maris is not in the party list"
 
-    // String[] names = {"Oskars", "Anna", "Andris"};
-    // String name1 = "Anna";
-    // String name2 = "Maris";
+    String[] names = {"Oskars", "Anna", "Andris"};
+    String name1 = "Anna";
+    String name2 = "Maris";
 
-    // checkList(names, name1);
-    // checkList(names, name2);
+    checkList(names, name1);
+    checkList(names, name2);
     
   
 
@@ -108,7 +108,6 @@ public class Main {
     
     
     // ---------------------------------------------------------------------------
-    // Very hard:
     // 1. Grades in university
     // You have 3 students, each one of them has grades. (three different int arrays) 
     // Calculate the average grade for each student (sum of all grades and divide by grade count)
@@ -122,13 +121,20 @@ public class Main {
     // Robert's average grade is 8
     // Anna's average grade is 8.4
     // Franceska's average grade is 7.4
-    
+
+    int[] robertsGrades = {8, 6, 7, 9, 10};
+    int[] annasGrades = {7, 10, 10, 9, 6};
+    int[] franceskasGrades = {8, 8, 8, 7, 6};
+
+    System.out.println(avarageGrade(robertsGrades));
+    System.out.println(avarageGrade(annasGrades));
+    System.out.println(avarageGrade(franceskasGrades));
+               
 
     
     scn.close();
     
   }
- // ---------------------------------------------------------------------------  Functions  ---------------------------------------------------------------------------
   
   public static int smallestNumber(int num1, int num2) {
     if (num1 < num2) {
@@ -205,4 +211,17 @@ public class Main {
      scn.close();
 
   }
+
+  public static float avarageGrade(int[] grades) {
+    float sum = 0;
+    
+    for(int i = 0; i < grades.length; i++) {
+      sum = sum + grades[i];
+      
+    }
+    float averageGrade = sum / grades.length;
+    return averageGrade;
+  }
+
+  
 }
